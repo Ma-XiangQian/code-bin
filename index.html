@@ -15,10 +15,12 @@
   }
   header{
     position: relative;
-    background-image:url(./img/bj.jpg);
+    transition:all 0.3s;
+    background-image:url(./img/bj.png);
     background-size: cover;
     background-position:center;
     width:100%;
+    height:560px;
   }
   header #header-top{
     position: absolute;
@@ -34,6 +36,10 @@
   }
   header #header-top h1{
     font-size:20px;
+  }
+  header #header-top nav{
+    display: flex;
+    align-items: center;
   }
   header #header-top nav ul{
     display: flex;
@@ -53,13 +59,31 @@
   header #header-content{
     position: absolute;
     left:50%;
-    top:40%;
+    top:50%;
     transform:translateX(-50%) translateY(-50%);
     text-align: center;
     color:#fff;
     line-height:1.5;
     white-space: nowrap;
     
+  }
+  header #header-top nav #nav-btn{
+    display:none;
+    width:20px;
+    height:18px;
+  }
+  header #header-top nav #nav-btn ul{
+    display: flex;
+    width:100%;
+    height:100%;
+    flex-direction: column;
+    justify-content:space-between;
+    align-items: center;
+  }
+  header #header-top nav #nav-btn ul li{
+    width:100%;
+    height:3px;
+    background-color:#fff;
   }
   header #header-content h1{
     font-size:75px;
@@ -78,19 +102,31 @@
         width:100%;
         height:500px;
       }
-
+  
+@media (max-width: 768px){
+  header{
+    height:300px;
+  }
+  header #header-content h1{
+    font-size:50px;
+  }
+  header #header-top nav #nav-btn{
+    display:block;
+  }
+  header #header-top nav > ul{
+    display:none;
+    }
+}
   </style>
   <script src="./js/jq.js"></script>
   <script src="./config.js"></script>
   <script>
-
     $(function(){
-      let header= $("header");
-      header.height($(window).height()/1.3);
-      let h1=$("#header-content h1")[0];
-      h1.innerHTML=config.title;
-    });
-
+      let title=$("#header-content h1")[0];
+      let top_title=$("#header-top h1")[0];
+      title.innerHTML=config.title;
+      top_title.innerHTML=config.title;
+    })
   </script>
 </head>
 
@@ -103,6 +139,13 @@
             <li><a href="#">首页</a></li>
             <li><a href="#">标签</a></li>
           </ul>
+          <div id="nav-btn">
+            <ul>
+              <li></li>
+              <li></li>
+              <li></li>
+            </ul>
+          </div>
         </nav>
     </div>
 

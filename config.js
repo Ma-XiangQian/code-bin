@@ -1,5 +1,5 @@
 let config={
-
-    title:"My SITE",
+    
+    title:"标题",
     
 }
